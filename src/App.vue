@@ -62,7 +62,7 @@ export default {
       };
       
       try {
-        const response = await fetch('http://localhost:3000/register', {
+        const response = await fetch('register 2http://95.217.6.99:3000/register', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(userData)
@@ -78,7 +78,6 @@ export default {
         email: this.email,
         password: this.password
       };
-      
       try {
         const response = await fetch('http://localhost:3000/login', {
           method: 'POST',
