@@ -122,6 +122,7 @@ body {
 h1 {
   margin-bottom: 20px;
   font-weight: bold;
+  color: white;
 }
 
 form input {
