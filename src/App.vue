@@ -62,15 +62,20 @@ export default {
       };
       
       try {
-        const response = await fetch('register 2http://95.217.6.99:3000/register', {
+        const response = await fetch('http://rimpici.it/register', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(userData)
         });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
         const data = await response.json();
-        this.message = data.message || "Registration successful!";
+        this.message = data.message || "Registrazione avvenuta con successo!";
       } catch (error) {
-        this.message = "Errore nella registrazione.";
+        this.message = "Errore nella registrazione: " + error.message;
       }
     },
     async loginUser() {
@@ -78,16 +83,22 @@ export default {
         email: this.email,
         password: this.password
       };
+
       try {
-        const response = await fetch('http://localhost:3000/login', {
+        const response = await fetch('http://rimpici.it/login', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(loginData)
         });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
         const data = await response.json();
-        this.message = data.message || "Login successful!";
+        this.message = data.message || "Login effettuato con successo!";
       } catch (error) {
-        this.message = "Errore nel login.";
+        this.message = "Errore nel login: " + error.message;
       }
     }
   }
